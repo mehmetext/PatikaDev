@@ -1,0 +1,87 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.baslik {
+    text-align: center;
+    color: red;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu li {
+    margin: 0 10px;
+    list-style-type: none;
+}
+
+.menu  .active {
+    background: blue;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.sayfa-baslik {
+    text-align: center;
+    color: blue;
+}
+
+p {
+    text-align: center;
+}
+
+.bildiklerim {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bildigim {
+    flex-basis: calc(33.3333333% - 20px);
+    background: purple;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.bildigim h1 {
+    font-size: 26px;
+    margin: 5px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    transition: .25s ease;
+}
+
+.bildigim:hover h1 {
+    background: purple;
+    color: #fff;
+    transform: scale(1.2,1.2) translateY(10px);
+}
+
+.bildigim span {
+    transition: .25s ease;
+}
+
+.bildigim:hover span {
+    transform: translateY(-20px);
+    opacity: 0;
+}
