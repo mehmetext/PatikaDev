@@ -17,6 +17,7 @@ sayHi(() => {
 });
  */
 
+import axios from "axios";
 import fetch from "node-fetch";
 
 /* fetch("https://jsonplaceholder.typicode.com/users")
@@ -51,10 +52,17 @@ import fetch from "node-fetch";
 getData();
  */
 
-(async () => {
+await (async () => {
 	const post2 = await (
 		await fetch("https://jsonplaceholder.typicode.com/posts/2")
 	).json();
 
 	console.log("post2: ", post2);
+})();
+
+await (async () => {
+	const { data: post3 } = await axios(
+		"https://jsonplaceholder.typicode.com/posts/3"
+	);
+	console.log("post3: ", post3);
 })();
