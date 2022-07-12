@@ -1,5 +1,5 @@
-import slugify from "slugify";
+import { hello, topla } from "./my_module.js";
 
-const title = slugify("Mehmet Konukçu'nun bir başlığı");
+console.log(topla(2, 3));
 
-console.log(title);
+console.log(hello("Mehmet"));
