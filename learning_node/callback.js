@@ -56,5 +56,5 @@ getData();
 		await fetch("https://jsonplaceholder.typicode.com/posts/2")
 	).json();
 
-	console.log("post2: ", post2);
+	console.log("post2:  ", post2);
 })();
