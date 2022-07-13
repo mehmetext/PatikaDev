@@ -1,34 +1,30 @@
 import { useState } from "react";
 
 export default function InputExample() {
-	const [name, setName] = useState("");
-	const [surname, setSurname] = useState("");
+	const [form, setForm] = useState({ name: "", surname: "" });
 
-	const onChangeSurname = (e) => {
-		setSurname(e.target.value);
+	const onChangeInput = (e) => {
+		setForm({ ...form, [e.target.id]: e.target.value });
+		console.log(form);
 	};
 
 	return (
 		<div>
 			<label htmlFor="name">
 				Please enter a name <br />
-				<input
-					id="name"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-				/>
+				<input id="name" value={form.name} onChange={onChangeInput} />
 			</label>
 			<br />
 			<label htmlFor="surname">
 				Please enter a surname <br />
 				<input
 					id="surname"
-					value={surname}
-					onChange={onChangeSurname}
+					value={form.surname}
+					onChange={onChangeInput}
 				/>
 			</label>
 			<br />
-			{name || surname ? `${name} ${surname}` : "no name"}
+			{form.name} {form.surname}
 		</div>
 	);
 }
