@@ -1,6 +1,6 @@
-function User({ name, surname, age, isLoggedIn }) {
+function User({ name, surname, age, isLoggedIn, friends }) {
 	return (
-		<div>
+		<>
 			<h1>
 				{isLoggedIn ? (
 					<>
@@ -10,7 +10,14 @@ function User({ name, surname, age, isLoggedIn }) {
 					<>Giriş Yapmadınız</>
 				)}
 			</h1>
-		</div>
+			<div className="friends">
+				{friends.map((friend) => (
+					<div key={friend.id}>
+						{friend.id} - {friend.name}
+					</div>
+				))}
+			</div>
+		</>
 	);
 }
 
