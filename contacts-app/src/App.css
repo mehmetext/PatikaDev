@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  input {
+    background-color: #ccc;
+    border: 0;
+    outline: 0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: #575757;
+  }
+
+  ul {
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin: 5px 0;
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.03);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+  }
+
+  .contactForm {
+    width: 100%;
+    display: flex;
+  }
+
+  .contactForm input{
+    flex: 1;
+  }
+
+  .contactForm input:first-child {
+    margin-right: 10px;
+  }
+
+  .contactForm + div {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .contactForm + div button {
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  .noone {
+    margin: 10px;
+  }
