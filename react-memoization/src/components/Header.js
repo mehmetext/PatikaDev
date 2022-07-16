@@ -1,13 +1,12 @@
 import React from "react";
 
-function Header({ data }) {
+function Header() {
 	console.log("Header render edildi");
 	return (
 		<>
 			<div>
 				<h1>HEADER</h1>
 			</div>
-			<pre>{JSON.stringify(data, null, 2)}</pre>
 			<hr />
 		</>
 	);
