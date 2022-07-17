@@ -38,6 +38,10 @@ export default function todosReducer(state, action) {
 				}
 				return todo;
 			});
+			localStorage.setItem(
+				"todos",
+				JSON.stringify(addingToggleCompletedTodo)
+			);
 			return { ...state };
 		default:
 			return { ...state };
