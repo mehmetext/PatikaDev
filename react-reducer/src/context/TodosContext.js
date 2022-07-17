@@ -5,8 +5,14 @@ const Context = createContext();
 
 const Provider = ({ children }) => {
 	const [state, dispatch] = useReducer(todoReducer, {
-		todo: "",
-		todos: [],
+		todo:
+			localStorage.getItem("todo") !== null
+				? localStorage.getItem("todo")
+				: "",
+		todos:
+			localStorage.getItem("todos") !== null
+				? JSON.parse(localStorage.getItem("todos"))
+				: [],
 	});
 
 	const data = { ...state, dispatch };
