@@ -3,6 +3,7 @@ import Header from "./Header";
 
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
+import Profile from "./Profile";
 
 export default function Container() {
 	const { theme } = useContext(ThemeContext);
@@ -11,6 +12,8 @@ export default function Container() {
 		<div className={`App ${theme === "dark" ? "dark" : ""}`}>
 			<Header />
 			<Button />
+			<hr />
+			<Profile />
 		</div>
 	);
 }
