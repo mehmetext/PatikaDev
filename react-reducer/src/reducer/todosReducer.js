@@ -38,11 +38,25 @@ export default function todosReducer(state, action) {
 				}
 				return todo;
 			});
+
 			localStorage.setItem(
 				"todos",
 				JSON.stringify(addingToggleCompletedTodo)
 			);
-			return { ...state };
+
+			return { ...state, todos: addingToggleCompletedTodo };
+		case "UPDATE_TODO":
+			const updatingTodoList = state.todos.map((todo) => {
+				if (todo.id === action.value.id) {
+					todo.text = action.value.todo;
+				}
+
+				return todo;
+			});
+
+			localStorage.setItem("todos", JSON.stringify(updatingTodoList));
+
+			return { ...state, todos: updatingTodoList };
 		default:
 			return { ...state };
 	}
