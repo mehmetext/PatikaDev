@@ -6,7 +6,11 @@ export default function todosReducer(state, action) {
 			localStorage.setItem("todo", action.value);
 			return { ...state, todo: action.value };
 		case "ADD_TODO":
-			const addingTodo = { id: nanoid(), text: action.value };
+			const addingTodo = {
+				id: nanoid(),
+				text: action.value,
+				completed: false,
+			};
 			let addingTodoList = [addingTodo, ...state.todos];
 
 			localStorage.setItem("todos", JSON.stringify(addingTodoList));
@@ -27,6 +31,14 @@ export default function todosReducer(state, action) {
 				...state,
 				todos: deletingTodoList,
 			};
+		case "TOGGLE_COMPLETED_TODO":
+			const addingToggleCompletedTodo = state.todos.map((todo) => {
+				if (action.value === todo.id) {
+					todo.completed = !todo.completed;
+				}
+				return todo;
+			});
+			return { ...state };
 		default:
 			return { ...state };
 	}
