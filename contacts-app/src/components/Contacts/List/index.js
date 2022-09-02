@@ -1,16 +1,11 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { contactsSelectors } from "../../../store/contacts";
+import Item from "./Item";
 
-export default function List({ contacts }) {
+export default function List() {
 	const [filterText, setFilterText] = useState("");
-
-	const filtered = contacts.filter((item) => {
-		return Object.keys(item).some((key) => {
-			return item[key]
-				.toString()
-				.toLowerCase()
-				.includes(filterText.toLocaleLowerCase());
-		});
-	});
+	const contacts = useSelector(contactsSelectors.selectAll);
 
 	return (
 		<div>
@@ -21,17 +16,14 @@ export default function List({ contacts }) {
 					placeholder="Filter"
 				/>
 			</div>
-			{filtered.length > 0 ? (
+			{contacts.length > 0 ? (
 				<ul>
-					{filtered.map((contact) => (
-						<li>
-							{contact.fullName}{" "}
-							<span>{contact.phoneNumber}</span>
-						</li>
+					{contacts.map((contact) => (
+						<Item key={contact.id} contact={contact} />
 					))}
 				</ul>
 			) : (
-				<div class="noone">Kişi yok.</div>
+				<div className="noone">Kişi yok.</div>
 			)}
 		</div>
 	);

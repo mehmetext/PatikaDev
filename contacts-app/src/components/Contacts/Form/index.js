@@ -1,8 +1,10 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { useState } from "react";
+import { addContactDispatch } from "../../../store/dispatch";
 
 const formInitialValues = { fullName: "", phoneNumber: "" };
 
-export default function Form({ addContact }) {
+export default function Form() {
 	const [form, setForm] = useState(formInitialValues);
 
 	const onChangeForm = (e) => {
@@ -12,14 +14,14 @@ export default function Form({ addContact }) {
 	const onSubmit = (e) => {
 		e.preventDefault();
 		if (form.fullName !== "" && form.phoneNumber !== "") {
-			addContact(form);
+			addContactDispatch({ id: nanoid(), ...form });
 			setForm(formInitialValues);
 		}
 	};
 
 	return (
 		<form onSubmit={onSubmit}>
-			<div class="contactForm">
+			<div className="contactForm">
 				<input
 					name="fullName"
 					value={form.fullName}

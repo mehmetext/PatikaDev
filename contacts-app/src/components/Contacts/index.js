@@ -2,8 +2,6 @@ import Form from "./Form";
 import List from "./List";
 import { useState } from "react";
 
-import styles from "./style.module.css";
-
 export default function Contacts() {
 	const [contacts, setContacts] = useState([]);
 
@@ -12,7 +10,7 @@ export default function Contacts() {
 	};
 
 	return (
-		<div className={styles.box}>
+		<div className="box">
 			<List contacts={contacts} />
 			<Form addContact={addContact} />
 		</div>
